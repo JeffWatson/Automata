@@ -1,0 +1,38 @@
+{ "label" : "(AB)*",
+	"minDFA" : [
+		{ "state" : "q0",
+		   "accepting" : false,
+		   "adj" : [{"to" : "q1", "on" : "A"},
+		   			{"to" : "q2", "on" : "B"},
+		   			{"to" : "q4", "on" : "C"}]
+		},
+		{ "state" : "q1",
+		   "accepting" : false,
+		   "adj" : [{"to" : "q1", "on" : "A"},
+		   			{"to" : "q2", "on" : "B"},
+		   			{"to" : "q4", "on" : "C"}]
+		},
+		{ "state" : "q2",
+		   "accepting" : false,
+		   "adj" : [{"to" : "q1", "on" : "A"},
+		   			{"to" : "q2", "on" : "B"},
+		   			{"to" : "q4", "on" : "C"}]
+		},
+		{ "state" : "q3",
+		   "accepting" : false,
+		   "adj" : [{"to" : "q1", "on" : "A"},
+		   			{"to" : "q2", "on" : "B"},
+		   			{"to" : "q4", "on" : "C"}]
+		},
+		{ "state" : "q4",
+		   "accepting" : true,
+		   "adj" : [{"to" : "q1", "on" : "A"},
+		   			{"to" : "q2", "on" : "B"},
+		   			{"to" : "q4", "on" : "C"}]
+		}
+	]	
+}
+
+// I don't know if this is actually correct... It's just an example.
+// This is what the back end should spit out after putting in a regex.
+// This will be converted to TeX, then a pdf, and then displayed on the webpage.
