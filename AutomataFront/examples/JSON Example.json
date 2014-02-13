@@ -1,38 +1,34 @@
-{ "label" : "(AB)*",
-	"minDFA" : [
+{   "label" : "(A*BA*B)*",
+	"minDFA" : {"states" : [
 		{ "state" : "q0",
-		   "accepting" : false,
-		   "adj" : [{"to" : "q1", "on" : "A"},
-		   			{"to" : "q2", "on" : "B"},
-		   			{"to" : "q4", "on" : "C"}]
+		   "adj" : [{"to" : "q0", "on" : "A"},
+		   			{"to" : "q0", "on" : "B"}]
 		},
 		{ "state" : "q1",
-		   "accepting" : false,
-		   "adj" : [{"to" : "q1", "on" : "A"},
-		   			{"to" : "q2", "on" : "B"},
-		   			{"to" : "q4", "on" : "C"}]
+		   "adj" : [{"to" : "q2", "on" : "A"},
+		   			{"to" : "q3", "on" : "B"}]
 		},
 		{ "state" : "q2",
-		   "accepting" : false,
-		   "adj" : [{"to" : "q1", "on" : "A"},
-		   			{"to" : "q2", "on" : "B"},
-		   			{"to" : "q4", "on" : "C"}]
+		   "adj" : [{"to" : "q2", "on" : "A"},
+		   			{"to" : "q3", "on" : "B"}]
 		},
 		{ "state" : "q3",
-		   "accepting" : false,
-		   "adj" : [{"to" : "q1", "on" : "A"},
-		   			{"to" : "q2", "on" : "B"},
-		   			{"to" : "q4", "on" : "C"}]
+		   "adj" : [{"to" : "q4", "on" : "A"},
+		   			{"to" : "q5", "on" : "B"}]
 		},
 		{ "state" : "q4",
-		   "accepting" : true,
-		   "adj" : [{"to" : "q1", "on" : "A"},
-		   			{"to" : "q2", "on" : "B"},
-		   			{"to" : "q4", "on" : "C"}]
-		}
-	]	
+		   "adj" : [{"to" : "q4", "on" : "A"},
+		   			{"to" : "q5", "on" : "B"}]
+		},
+        { "state" : "q5",
+            "adj" : [{"to" : "q2", "on" : "A"},
+                     {"to" : "q3", "on" : "B"}]
+        }
+	],
+	"initial" : "q1",
+	"accepting" : ["q1","q5"]}	
 }
 
-// I don't know if this is actually correct... It's just an example.
+// I don't know if this is correct. It's based on the example on Sweany's website.
 // This is what the back end should spit out after putting in a regex.
 // This will be converted to TeX, then a pdf, and then displayed on the webpage.
