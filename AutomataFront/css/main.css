@@ -1,0 +1,13 @@
+.container {
+    border: solid black;
+    background: #cccccc;
+    border-radius: .5em;
+}
+
+.rules-container {
+    background: #ffffff;
+}
+
+form label {
+    display: block;
+}
