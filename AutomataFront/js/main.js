@@ -28,6 +28,7 @@ $(document).ready(function () {
         request.done(function (response, textStatus, jqXHR) {
             // log a message to the console
             console.log("Hooray, it worked!");
+            console.log(response);
             alert(response);
         });
 
@@ -50,4 +51,7 @@ $(document).ready(function () {
         // prevent default posting of form
         event.preventDefault();
     });
+
+
+//    $("#pdf_div").append("<div> <object data='test.pdf' type='application/pdf' width='100%' height='1000'> alt : <a href='test.pdf'>test.pdf</a> </object></div>");
 });

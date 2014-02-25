@@ -40,6 +40,8 @@
             include("php/components/pic_area.php");
         ?>
 
+        <div id="pdf_div"></div>
+
     </div>
 
 </body>
