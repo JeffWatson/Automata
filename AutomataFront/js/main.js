@@ -2,7 +2,7 @@ $(document).ready(function () {
     // variable to hold request
     var request;
     // bind to the submit event of our form
-    $("#submit").click(function (event) {
+    $("#regex-form").submit(function (event) {
         // abort any pending request
         if (request) {
             request.abort();
@@ -27,9 +27,8 @@ $(document).ready(function () {
         // callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR) {
             // log a message to the console
-            console.log("Hooray, it worked!");
-            console.log(response);
-            alert(response);
+            console.log("Hooray, it worked! Response: " + response);
+            handleResponse(response);
         });
 
         // callback handler that will be called on failure
@@ -52,6 +51,25 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-
-//    $("#pdf_div").append("<div> <object data='test.pdf' type='application/pdf' width='100%' height='1000'> alt : <a href='test.pdf'>test.pdf</a> </object></div>");
+//    $("#regex-form").submit(function (e) {
+//        e.preventDefault();
+//
+//        $("#submit").click();
+//    })
 });
+
+var handleResponse = function (response) {
+    var obj = JSON.parse(response);
+    var status = obj.status;
+
+    // load the new picture
+    if(status === "SUCCESS") {
+        console.log("We were successful. Loading the Picture.");
+
+
+
+    } else {
+        // throw an error message.
+        alert("There was an error. " + obj.message);
+    }
+}
