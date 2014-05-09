@@ -68,6 +68,7 @@ var handleResponse = function (response) {
 
 var loadPicture = function (file) {
 //    alert("loaded file: " + file);
+    file = decodeURIComponent(file);
 
     $("#pdf_div").append("<div> <object data='/~jcw0227/apps/Automata/php/handlers/pdf/" + file + "' type='application/pdf' width='100%' height='1000'> alt : <a href='" + file + "'>" + file +"</a> </object></div>");
 }

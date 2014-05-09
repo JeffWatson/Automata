@@ -98,7 +98,7 @@ public:
     					if((i->first).first == i->second){
     						cout << "(" << (i->first).first << ") " << "edge [loop above] node " << "{"<< (i->first).second << "} " <<  "()" <<endl;
     					}else{
-    						cout << "(" << (i->first).first << ") " << "edge [bend right]  node  " << "{"<< (i->first).second << "} " <<  "(" << i->second << ")" <<endl;
+    						cout << "(" << (i->first).first << ") " << "edge [bend right]  node  " << "{"<< (i->first).second << "} " <<  "(" << i->second - 1 << ")" <<endl;
 
     					}
     					x++;
@@ -106,7 +106,7 @@ public:
     					if((i->first).first == i->second){
     						cout << "edge [loop above] node " << "{"<< (i->first).second << "} " <<  "()" <<endl;
     					}else{
-    						cout << "edge [bend right] node" << "{"<< (i->first).second << "} " <<  "(" << i->second << ")" <<endl;
+    						cout << "edge [bend right] node" << "{"<< (i->first).second << "} " <<  "(" << i->second - 1 << ")" <<endl;
 
     					}
     				}
@@ -119,7 +119,7 @@ public:
     					if((i->first).first == i->second){
     						cout << "(" << (i->first).first << ") " << "edge [loop above] node " << "{"<< (i->first).second << "} " <<  "()" ;
     					}else{
-    						cout << "(" << (i->first).first << ") " << "edge [bend right]  node " << "{"<< (i->first).second << "} " <<  "(" << i->second << ")" ;
+    						cout << "(" << (i->first).first << ") " << "edge [bend right]  node " << "{"<< (i->first).second << "} " <<  "(" << i->second - 1 << ")" ;
 
     					}
     					x++;
@@ -127,7 +127,7 @@ public:
     					if((i->first).first == i->second){
     						cout << "edge [loop above] node " << "{"<< (i->first).second << "} " <<  "()" ;
     					}else{
-    						cout << "edge [bend right]  node " << "{"<< (i->first).second << "} " <<  "(" << i->second << ")" ;
+    						cout << "edge [bend right]  node " << "{"<< (i->first).second << "} " <<  "(" << i->second - 1 << ")" ;
 
     					}
     				}
