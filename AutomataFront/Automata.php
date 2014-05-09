@@ -32,7 +32,7 @@
 <body>
     <div class="container">
         <h1>Automata Creator</h1>
-        <h3>This is a subtitle</h3>
+        <h3>Enter a Regular Expression and click Go!</h3>
 
         <?php
             include("php/components/rules.php");

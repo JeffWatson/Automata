@@ -1,11 +1,16 @@
 #!/bin/bash
 
 echo "Content-type: text/plain"
-echo ""
+echo "" # Blank line to meet HTTP protocol
 
-POST_DATA=$(</dev/stdin)
-
-#echo “Post data: ${POST_DATA}”
+POST_DATA=""
+read -n $CONTENT_LENGTH POST_DATA <&0
+#hash -r
+echo “Post data: ${POST_DATA}” > test.txt
+echo $(whoami) >> test.txt
+echo $(type pdflatex) &>> test.txt
+echo $(type /usr/bin/pdflatex) &>> test.txt
+echo $(ls) >> test.txt
 
 regex=${POST_DATA#regex=}
 
@@ -16,5 +21,10 @@ regex=${POST_DATA#regex=}
 #// echo a json object with "FAILURE" or "SUCCESS" ( echo "{ "status" : "SUCCESS", "file" : "$regex.pdf"})
 #// front end will then load the pdf and inject it in to the webpage
 
-echo '{"status" : "SUCCESS", "file" : "'${regex}.pdf'"}' | tee ./json/${regex}.json
+./AutomataBack "${regex}" "" > "./tex/${regex}"
+cd tex
+./pdflatex "${regex}" &>> ./../test.txt
+mv "${regex}.pdf" "../pdf/${regex}.pdf"
+
+echo '{"status" : "SUCCESS", "file" : "'${regex}'.pdf"}' | tee ./json/$regex.json
 #echo '{"status" : "ERROR", "message" : "Unable to Complete"}'

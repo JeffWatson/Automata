@@ -8,7 +8,7 @@ $(document).ready(function () {
             request.abort();
         }
         // setup some local variables
-        var $form = $(this).parents("form");
+        var $form = $(this);
         // let's select and cache all the fields
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
@@ -17,9 +17,9 @@ $(document).ready(function () {
         // let's disable the inputs for the duration of the ajax request
         $inputs.prop("disabled", true);
 
-        // fire off the request to /form.php
+        // fire off the request to the form handler.
         request = $.ajax({
-            url: "/apps/Automata/php/handlers/automata_handler.cgi",
+            url: "/~jcw0227/apps/Automata/php/handlers/automata_handler.cgi",
             type: "POST",
             data: serializedData
         });
@@ -50,12 +50,6 @@ $(document).ready(function () {
         // prevent default posting of form
         event.preventDefault();
     });
-
-//    $("#regex-form").submit(function (e) {
-//        e.preventDefault();
-//
-//        $("#submit").click();
-//    })
 });
 
 var handleResponse = function (response) {
@@ -65,11 +59,15 @@ var handleResponse = function (response) {
     // load the new picture
     if(status === "SUCCESS") {
         console.log("We were successful. Loading the Picture.");
-
-
-
+        loadPicture(obj.file);
     } else {
         // throw an error message.
         alert("There was an error. " + obj.message);
     }
+}
+
+var loadPicture = function (file) {
+//    alert("loaded file: " + file);
+
+    $("#pdf_div").append("<div> <object data='/~jcw0227/apps/Automata/php/handlers/pdf/" + file + "' type='application/pdf' width='100%' height='1000'> alt : <a href='" + file + "'>" + file +"</a> </object></div>");
 }
